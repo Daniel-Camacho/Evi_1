@@ -15,24 +15,28 @@ public class Libros {
         List info  = new ArrayList();
         if(libro.equals("Teoria")){
             info.add("La teoria del todo");
+            info.add("<img src = ");
             info.add("descripcion");
             info.add("Stephen Hawking");
             info.add("90.00mx");
         }
         else if(libro.equals("Cielo")){
             info.add("Cielo Escarlata");
+            info.add("<img src = ");
             info.add("descripcion");
             info.add("Mark Sullivan");
             info.add("90.00mx");
         }
         else if(libro.equals("Juntos")){
             info.add("Juntos a media noche");
+            info.add("<img src = ");
             info.add("desc");
             info.add("Jennifer");
             info.add("90.00mx");
         }
         else if(libro.equals("Trampa")){
             info.add("Trampas de la mente");
+            info.add("<img src = ");
             info.add("desc");
             info.add("Joseph T Halinnan");
             info.add("90.00mx");
