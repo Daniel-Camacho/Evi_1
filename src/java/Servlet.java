@@ -6,6 +6,7 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,13 +60,13 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String libroname = request.getParameter("libro");
-        out.println(libroname);
-        
-        
-        
-       // RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");
-        //view.forward(request, response);
+        String compra = request.getParameter("Compra");
+        Libros be = new Libros();
+        List result = be.getLibro(compra);
+     
+        request.setAttribute("result", result);
+        RequestDispatcher view = request.getRequestDispatcher("Librosinfo.jsp");
+        view.forward(request, response);
     }
 
     /**
