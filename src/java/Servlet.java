@@ -59,9 +59,6 @@ public class Servlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String libroname = request.getParameter("libro");
-        out.println(libroname);
-        
         
         
        // RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");

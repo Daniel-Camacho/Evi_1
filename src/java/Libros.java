@@ -17,33 +17,29 @@ public class Libros {
             info.add("La teoria del todo");
             info.add("descripcion");
             info.add("Stephen Hawking");
-            return(info);
+            info.add("90.00mx");
         }
-
-        if(libro.equals("Cielo")){
+        else if(libro.equals("Cielo")){
             info.add("Cielo Escarlata");
             info.add("descripcion");
             info.add("Mark Sullivan");
-            return(info);
+            info.add("90.00mx");
         }
-
-        if(libro.equals("Juntos")){
+        else if(libro.equals("Juntos")){
             info.add("Juntos a media noche");
             info.add("desc");
             info.add("Jennifer");
-            return(info);
+            info.add("90.00mx");
         }
-
-        if(libro.equals("Trampa")){
+        else if(libro.equals("Trampa")){
             info.add("Trampas de la mente");
             info.add("desc");
             info.add("Joseph T Halinnan");
-            return(info);
+            info.add("90.00mx");
         }
         else{
             info.add("No se encontro su busqueda");
-            return(info);
         }
-
+        return (info);
     }
 }
