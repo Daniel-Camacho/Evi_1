@@ -5,6 +5,7 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,7 +58,14 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String libroname = request.getParameter("libro");
+        out.println(libroname);
+        
+        
+        
+       // RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");
+        //view.forward(request, response);
     }
 
     /**
@@ -86,6 +94,7 @@ public class Servlet extends HttpServlet {
         request.setAttribute("telefono", telefono);
         request.setAttribute("contraseña", contraseña);
         request.setAttribute("ccontraseña", ccontraseña);
+        
         RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");
         view.forward(request, response);
     }

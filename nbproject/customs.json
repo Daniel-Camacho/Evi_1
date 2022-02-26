@@ -1,6 +1,11 @@
 {
     "elements": {
+        "form": {},
         "spam": {}
     },
-    "attributes": {}
+    "attributes": {
+        "href": {
+            "context": "figure"
+        }
+    }
 }
