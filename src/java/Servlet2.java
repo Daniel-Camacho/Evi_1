@@ -5,7 +5,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.util.Arrays;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
@@ -21,8 +20,8 @@ import javax.servlet.http.HttpSession;
  *
  * @author Kevin PC
  */
-@WebServlet(urlPatterns = {"/Servlet"})
-public class Servlet extends HttpServlet {
+@WebServlet(urlPatterns = {"/Servlet2"})
+public class Servlet2 extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,10 +40,10 @@ public class Servlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Servlet</title>");
+            out.println("<title>Servlet Servlet2</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Servlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet Servlet2 at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -62,19 +61,8 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       // RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");
-        //view.forward(request, response);
-
-        String compra = request.getParameter("Compra");
-        Libros be = new Libros();
-        List result = be.getLibro(compra);
-        
-        request.setAttribute("compra", compra);
-        request.setAttribute("result", result);
-        RequestDispatcher view = request.getRequestDispatcher("Librosinfo.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("compraLista.jsp");
         view.forward(request, response);
-        
-
     }
 
     /**
@@ -88,23 +76,25 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        String name = request.getParameter("name");
-        String apellido = request.getParameter("apellido");
-        String Emai = request.getParameter("Emai");
-        String telefono = request.getParameter("telefono");
-        String contraseña = request.getParameter("contraseña");
-        String ccontraseña = request.getParameter("ccontraseña");
-
-
-        request.setAttribute("name", name);
-        request.setAttribute("apellido", apellido);
-        request.setAttribute("Emai", Emai);
-        request.setAttribute("telefono", telefono);
-        request.setAttribute("contraseña", contraseña);
-        request.setAttribute("ccontraseña", ccontraseña);
         
-        RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");
+        String Compra2 = request.getParameter("compra");
+        
+        HttpSession session = request.getSession();
+        Cookie Compra;
+        if(!session.isNew()){
+            Cookie[] cookies = request.getCookies();
+            List alcookies = Arrays.asList(cookies);
+            Compra = new Cookie("Libros", Compra2);
+            for(Cookie cook : cookies){
+                if(cook.getName().equals("Libros")){
+                    Compra = cook;
+                }
+            }
+        }else{
+            Compra = new Cookie("Libros", Compra2);
+        }
+        response.addCookie(Compra);
+        RequestDispatcher view = request.getRequestDispatcher("infopago.jsp");
         view.forward(request, response);
     }
 

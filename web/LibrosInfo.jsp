@@ -18,14 +18,18 @@
         <div>
             Descripción:
             <p>
-                <%List result = (List)request.getAttribute("info");
-            Iterator it = result.iterator();
-            while(it.hasNext()){
-            out.print("<br>"+it.next());
-            }%>
+                <%List result = (List) request.getAttribute("result");
+                    Iterator it = result.iterator();
+                    while (it.hasNext()) {
+                        out.print("<br>" + it.next());
+                    }%>
             </p>
         </div>
             <p><a href='Catalogo.html'>Cancelar</a></p>
-            <p><a href='Compras.jsp'>Comprar</a></p>
+         <form method="post" action="Servlet2">
+            <%                   
+                out.print("<input name=\"compra\" Value="+request.getAttribute("compra")+" type=\"submit\">");
+            %>
+         </form>  
     </body>
 </html>
