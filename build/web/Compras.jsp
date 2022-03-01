@@ -1,7 +1,7 @@
 <%-- 
-    Document   : LibrosInfo
-    Created on : 25 feb. 2022, 20:34:18
-    Author     : Kevin PC
+    Document   : Compras
+    Created on : 27/02/2022, 09:53:19 PM
+    Author     : Chris
 --%>
 
 <%@page import="java.util.Iterator"%>
@@ -14,7 +14,7 @@
         <title><%out.print(request.getAttribute("nombre"));%></title>
     </head>
     <body>
-        <h1>Resumen compra</h1>
+        <h1>Comprar</h1>
         <div>
             Descripción:
             <p>
@@ -25,7 +25,7 @@
             }%>
             </p>
         </div>
-            <p><a href='Catalogo.html'>Cancelar</a></p>
-            <p><a href='Compras.jsp'>Comprar</a></p>
+            <p><a href='Catalogo.html'>Regresar</a></p>
+            <p><a href='infoPago.html'>Comprar</a></p>
     </body>
 </html>

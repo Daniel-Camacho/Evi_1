@@ -14,7 +14,7 @@
         <title><%out.print(request.getAttribute("nombre"));%></title>
     </head>
     <body>
-        <h1>Info del Libro</h1>
+        <h1>Resumen compra</h1>
         <div>
             Descripción:
             <p>
@@ -24,8 +24,8 @@
             out.print("<br>"+it.next());
             }%>
             </p>
-            
-            <p><a href='index.html'>Regresar</a></p>
-            <p><a href='JuntosCompra.jsp'>Comprar</a></p>
+        </div>
+            <p><a href='Catalogo.html'>Cancelar</a></p>
+            <p><a href='Compras.jsp'>Comprar</a></p>
     </body>
 </html>

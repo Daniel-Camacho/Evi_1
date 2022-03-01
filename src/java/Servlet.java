@@ -6,12 +6,16 @@
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
+import java.util.Arrays;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -58,11 +62,33 @@ public class Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        
-        
        // RequestDispatcher view = request.getRequestDispatcher("Catalogo.html");
         //view.forward(request, response);
+
+        String compra = request.getParameter("Compra");
+        Libros be = new Libros();
+        List result = be.getLibro(compra);
+        
+        HttpSession session = request.getSession();
+        Cookie Compra;
+        if(!session.isNew()){
+            Cookie[] cookies = request.getCookies();
+            List alcookies = Arrays.asList(cookies);
+            Compra = new Cookie("Libros", compra);
+            for(Cookie cook : cookies){
+                if(cook.getName().equals("Libros")){
+                    Compra = cook;
+                }
+            }
+        }else{
+            Compra = new Cookie("Libros", compra);
+        }
+        response.addCookie(Compra);
+        request.setAttribute("result", result);
+        RequestDispatcher view = request.getRequestDispatcher("Librosinfo.jsp");
+        view.forward(request, response);
+        
+
     }
 
     /**
