@@ -11,19 +11,21 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><%out.print(request.getAttribute("nombre"));%></title>
+        <title></title>
     </head>
     <body>
         <h1>Resumen compra</h1>
         <div>
             Descripción:
-            <p>
-                <%List result = (List)request.getAttribute("info");
-            Iterator it = result.iterator();
-            while(it.hasNext()){
-            out.print("<br>"+it.next());
-            }%>
-            </p>
+            
+            <%List result = (List) request.getAttribute("result");
+                if (result != null) {
+                    Iterator it = result.iterator();
+                    while (it.hasNext()) {
+                        out.print("<br>" + it.next());
+                        }
+                    }%>
+            
         </div>
             <p><a href='Catalogo.html'>Cancelar</a></p>
             <p><a href='Compras.jsp'>Comprar</a></p>

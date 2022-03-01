@@ -18,11 +18,13 @@
         <div>
             Descripción:
             <p>
-                <%List result = (List)request.getAttribute("info");
-            Iterator it = result.iterator();
-            while(it.hasNext()){
-            out.print("<br>"+it.next());
-            }%>
+                <%List result = (List)request.getAttribute("result");
+                if (result != null) {
+                    Iterator it = result.iterator();
+                    while (it.hasNext()) {
+                        out.print("<br>" + it.next());
+                        }
+                    }%>
             </p>
         </div>
             <p><a href='Catalogo.html'>Regresar</a></p>

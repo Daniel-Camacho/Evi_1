@@ -85,7 +85,7 @@ public class Servlet extends HttpServlet {
         }
         response.addCookie(Compra);
         request.setAttribute("result", result);
-        RequestDispatcher view = request.getRequestDispatcher("Librosinfo.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("LibrosInfo.jsp");
         view.forward(request, response);
         
 
